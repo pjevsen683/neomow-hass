@@ -1,0 +1,14 @@
+{
+  "domain": "neomow",
+  "name": "Neomow",
+  "documentation": "https://github.com/yourusername/neomow",
+  "dependencies": [],
+  "codeowners": ["@yourusername"],
+  "requirements": ["paho-mqtt"],
+  "version": "0.1.0",
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "frontend": {
+    "views": ["frontend/views.yaml"]
+  }
+} 

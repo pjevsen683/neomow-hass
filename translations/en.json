@@ -1,0 +1,20 @@
+{
+    "config": {
+        "step": {
+            "user": {
+                "title": "Neomow Configuration",
+                "description": "Enter your Neomow device ID",
+                "data": {
+                    "device_id": "Device ID",
+                    "scan_interval": "Scan Interval (seconds)"
+                }
+            }
+        },
+        "error": {
+            "invalid_device_id": "Invalid device ID"
+        },
+        "abort": {
+            "already_configured": "Device is already configured"
+        }
+    }
+} 
