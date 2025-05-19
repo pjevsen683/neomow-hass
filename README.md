@@ -1,15 +1,62 @@
-# neomow-hass
-Custom integration with neomow and home assistant
+# Neomow Home Assistant Integration
 
-To install either do
+A custom integration for Home Assistant that enables communication with Neomow robotic lawn mowers.
+
+## Features
+
+- Integration with Neomow robotic lawn mowers
+- Status monitoring
+- Map parsing (in development)
+- Customizable sensors and binary sensors
+
+## Installation
+
+1. Navigate to your Home Assistant custom components directory:
+```bash
 cd homeassistant/config/custom_components/
+```
+
+2. Clone this repository:
+```bash
 git clone https://github.com/pjevsen683/neomow-hass.git
+```
 
-The config folder is the same as where the configuration.yaml is located.
+Note: The `config` folder is located in the same directory as your `configuration.yaml` file.
 
+## Configuration
 
-This is still en early stages and is still under development. Please feel free to do with as you like.
-You are also very welcome to contrubute in any way.
+Add the following to your `configuration.yaml`:
 
-To add new sensors, simply copy one form either sensors or binary sensors. Update what you want, and remember to add it to the __init__.py file in same folder.
-Right now only the STATUS message is parsed on succesfully, but I'm working on the map etc to be parsed aswell.
+```yaml
+neomow:
+  # Add your configuration here
+```
+
+## Development Status
+
+This integration is currently in early development stages. The following features are implemented:
+- ✅ Status message parsing
+- 🚧 Map parsing (in progress)
+
+## Contributing
+
+Contributions are welcome! Feel free to:
+- Report bugs
+- Suggest new features
+- Submit pull requests
+- Improve documentation
+
+### Adding New Sensors
+
+To add new sensors:
+1. Copy an existing sensor from either `sensors` or `binary_sensors` directory
+2. Modify the sensor according to your needs
+3. Add the new sensor to the `__init__.py` file in the corresponding folder
+
+## License
+
+[Add your license information here]
+
+## Support
+
+For support, please [open an issue](https://github.com/pjevsen683/neomow-hass/issues) on GitHub.
