@@ -25,12 +25,8 @@ Note: The `config` folder is located in the same directory as your `configuratio
 
 ## Configuration
 
-Add the following to your `configuration.yaml`:
-
-```yaml
-neomow:
-  # Add your configuration here
-```
+Go to integrations and search for neomow and add it. then enter your serial number, and how often it should update.
+Later, i will make this more dynamic, e.g. when the battery is full dont poll anymore.
 
 ## Development Status
 
@@ -55,7 +51,7 @@ To add new sensors:
 
 ## License
 
-[Add your license information here]
+Use as you please.
 
 ## Support
 
