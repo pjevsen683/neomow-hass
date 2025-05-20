@@ -169,7 +169,7 @@ class NeomowCoordinator(DataUpdateCoordinator):
             elif msg_type == "NOTICE_ALARM":
                 if "data" in payload:
                     self._data["alarm"] = {
-                        "active": "on" if payload["data"] else "off",
+                        "active": "on" if len(payload["data"]) > 0 else "off",
                         "details": payload["data"]
                     }
                     # Notify listeners of the update

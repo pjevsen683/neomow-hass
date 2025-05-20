@@ -16,4 +16,4 @@ class NeomowAlarmSensor(NeomowBaseBinarySensor):
         """Return true if there is an alarm."""
         if not self.coordinator.data:
             return False
-        return self.coordinator.data.get("alarm", {}).get("active") == "on"
+        return self.coordinator.data.get("alarm", {"active": "off"}).get("active") == "on"
