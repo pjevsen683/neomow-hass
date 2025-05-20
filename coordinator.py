@@ -177,31 +177,12 @@ class NeomowCoordinator(DataUpdateCoordinator):
                         lambda: self.async_set_updated_data(self._data)
                     )
             elif msg_type == "DEVICE_MAP_V2":
-                if "data" in payload:
-                    try:
-                        map_data = payload["data"]["DEVICE_MAP_V2"]
-                        if isinstance(map_data, str):
-                            map_data = json.loads(map_data)
-                        self._data["mapData"] = map_data
-                        # Notify listeners of the update
-                        self.hass.loop.call_soon_threadsafe(
-                            lambda: self.async_set_updated_data(self._data)
-                        )
-                    except json.JSONDecodeError:
-                        _LOGGER.error("Failed to parse DEVICE_MAP_V2 data as JSON")
+                _LOGGER.info("Received message: DEVICE_MAP_V2")
+                # Make an svg map and save the file somewhere. the data is too big to handle in db.
+                
             elif msg_type == "ALL_PATH_LIST_V2":
-                if "data" in payload:
-                    try:
-                        path_data = payload["data"]["ALL_PATH_LIST_V2"]
-                        if isinstance(path_data, str):
-                            path_data = json.loads(path_data)
-                        self._data["pathList"] = path_data
-                        # Notify listeners of the update
-                        self.hass.loop.call_soon_threadsafe(
-                            lambda: self.async_set_updated_data(self._data)
-                        )
-                    except json.JSONDecodeError:
-                        _LOGGER.error("Failed to parse ALL_PATH_LIST_V2 data as JSON")
+                _LOGGER.info("Received message: ALL_PATH_LIST_V2")
+                # Make an svg map and save the file somewhere. the data is too big to handle in db.
             
         except json.JSONDecodeError:
             _LOGGER.error("Failed to decode MQTT message: %s", msg.payload)

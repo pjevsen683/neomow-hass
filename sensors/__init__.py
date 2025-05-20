@@ -22,7 +22,6 @@ from .NeomowOnlineStatus import NeomowOnlineStatus
 from .NeomowWorkStatus import NeomowWorkStatus
 from .NeomowLatitude import NeomowLatitude
 from .NeomowLongitude import NeomowLongitude
-from .NeomowMapSensor import NeomowMapSensor
 from .NeomowGridZone import NeomowGridZone
 
 # List of all sensor classes
@@ -50,7 +49,6 @@ ALL_SENSORS = [
     NeomowWorkStatus,
     NeomowLatitude,
     NeomowLongitude,
-    NeomowMapSensor,
     NeomowGridZone,
 ]
 
@@ -78,7 +76,6 @@ __all__ = [
     "NeomowWorkStatus",
     "NeomowLatitude",
     "NeomowLongitude",
-    "NeomowMapSensor",
     "NeomowGridZone",
     "ALL_SENSORS",
 ] 
