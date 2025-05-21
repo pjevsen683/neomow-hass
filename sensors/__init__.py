@@ -71,6 +71,7 @@ __all__ = [
     "NeomowLeftDriveMotorTemp",
     "NeomowRightDriveMotorTemp",
     "NeomowKnifeDiscMotorTemp",
+    "NeomowKnifeDiscMotorSpeed",
     "NeomowLocation",
     "NeomowChargeCurrent",
     "NeomowMowingCoverage",
