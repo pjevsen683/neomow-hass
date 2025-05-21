@@ -20,6 +20,9 @@ from .const import (
     MQTT_PORT,
     MQTT_USERNAME,
     MQTT_PASSWORD,
+    BETA_MQTT_BROKER,
+    BETA_MQTT_USERNAME,
+    BETA_MQTT_PASSWORD,
     MAX_RECONNECT_ATTEMPTS,
     RECONNECT_DELAY,
 )
@@ -95,12 +98,19 @@ class NeomowCoordinator(DataUpdateCoordinator):
             self._mqtt_client.on_message = self._on_message
             self._mqtt_client.on_disconnect = self._on_disconnect
             
-            # Set credentials
-            self._mqtt_client.username_pw_set(MQTT_USERNAME, MQTT_PASSWORD)
+            # Set credentials based on beta setting
+            use_beta = self._entry.data.get("use_beta", False)
+            if use_beta:
+                _LOGGER.info("Using beta MQTT credentials")
+                self._mqtt_client.username_pw_set(BETA_MQTT_USERNAME, BETA_MQTT_PASSWORD)
+                broker = BETA_MQTT_BROKER
+            else:
+                self._mqtt_client.username_pw_set(MQTT_USERNAME, MQTT_PASSWORD)
+                broker = MQTT_BROKER
             
             # Connect to Neomow MQTT broker
-            _LOGGER.info("Connecting to MQTT broker %s:%d", MQTT_BROKER, MQTT_PORT)
-            self._mqtt_client.connect(MQTT_BROKER, MQTT_PORT)
+            _LOGGER.info("Connecting to MQTT broker %s:%d", broker, MQTT_PORT)
+            self._mqtt_client.connect(broker, MQTT_PORT)
             
             # Start the loop
             self._mqtt_client.loop_start()

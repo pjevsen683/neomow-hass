@@ -7,8 +7,7 @@ from homeassistant import config_entries
 from homeassistant.data_entry_flow import FlowResult
 from homeassistant.const import CONF_SCAN_INTERVAL
 
-DOMAIN = "neomow"
-DEFAULT_SCAN_INTERVAL = 10
+from .const import DOMAIN, DEFAULT_SCAN_INTERVAL
 
 class NeomowConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
     """Handle a config flow for Neomow."""
@@ -22,6 +21,7 @@ class NeomowConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
         if user_input is not None:
             device_id = user_input["device_id"]
             scan_interval = user_input[CONF_SCAN_INTERVAL]
+            use_beta = user_input["use_beta"]
             
             # Check if already configured
             await self.async_set_unique_id(device_id)
@@ -31,7 +31,8 @@ class NeomowConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
                 title=f"Neomow {device_id}",
                 data={
                     "device_id": device_id,
-                    CONF_SCAN_INTERVAL: scan_interval
+                    CONF_SCAN_INTERVAL: scan_interval,
+                    "use_beta": use_beta
                 }
             )
 
@@ -46,5 +47,6 @@ class NeomowConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
                     vol.Coerce(int),
                     vol.Range(min=1)
                 ),
+                vol.Required("use_beta", default=False): bool,
             })
         ) 
