@@ -15,6 +15,7 @@ from .NeomowCuttingHeight import NeomowCuttingHeight
 from .NeomowLeftDriveMotorTemp import NeomowLeftDriveMotorTemp
 from .NeomowRightDriveMotorTemp import NeomowRightDriveMotorTemp
 from .NeomowKnifeDiscMotorTemp import NeomowKnifeDiscMotorTemp  
+from .NeomowKnifeDiscMotorSpeed import NeomowKnifeDiscMotorSpeed
 from .NeomowLocation import NeomowLocation
 from .NeomowChargeCurrent import NeomowChargeCurrent
 from .NeomowMowingCoverage import NeomowMowingCoverage
@@ -42,6 +43,7 @@ ALL_SENSORS = [
     NeomowLeftDriveMotorTemp,
     NeomowRightDriveMotorTemp,
     NeomowKnifeDiscMotorTemp,
+    NeomowKnifeDiscMotorSpeed,
     NeomowLocation,
     NeomowChargeCurrent,
     NeomowMowingCoverage,
