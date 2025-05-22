@@ -28,6 +28,9 @@ Note: The `config` folder is located in the same directory as your `configuratio
 Go to integrations and search for neomow and add it. then enter your serial number, and how often it should update.
 Later, i will make this more dynamic, e.g. when the battery is full dont poll anymore.
 
+When everything is setup, open your Neomow mobile app to make this integration get the access token and then it should run by self.
+
+
 ## Development Status
 
 This integration is currently in early development stages. The following features are implemented:
