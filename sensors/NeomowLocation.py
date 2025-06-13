@@ -20,12 +20,15 @@ class NeomowLocation(NeomowBaseSensor):
         if not self.coordinator.data:
             return None
             
-        self.latitude = float(self.coordinator.data.get("latitude"))
-        self.longitude = float(self.coordinator.data.get("longitude"))
+        latitude = self.coordinator.data.get("latitude")
+        longitude = self.coordinator.data.get("longitude")
         
-        if self.latitude is None or self.longitude is None:
+        if latitude is None or longitude is None:
             return None
             
+        self.latitude = float(latitude)
+        self.longitude = float(longitude)
+        
         return f"{self.latitude},{self.longitude}"
 
     @property
